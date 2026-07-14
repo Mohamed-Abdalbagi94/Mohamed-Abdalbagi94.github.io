@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
         }
 
         :root {
@@ -36,7 +37,7 @@
             background-size: cover;
             background-position: center;
             color: #ffffff;
-            padding: 80px 20px;
+            padding: 90px 20px;
             text-align: center;
             border-bottom: 5px solid var(--accent-color);
         }
@@ -115,6 +116,83 @@
             margin-bottom: 15px;
             font-size: 1.05rem;
             text-align: justify;
+        }
+
+        /* Stats Cards Styling (القسم الجديد 1) */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            border-bottom: 4px solid var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: #64748b;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Workflow Steps (القسم الجديد 2) */
+        .workflow-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .workflow-card {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .workflow-step {
+            position: absolute;
+            top: -15px;
+            right: 15px;
+            background: var(--accent-color);
+            color: #ffffff;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .workflow-card h3 {
+            font-size: 1.15rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            margin-top: 5px;
         }
 
         /* Experience Timeline Items */
@@ -338,6 +416,22 @@
 
     <div class="container">
 
+        <!-- قسم الأرقام والإنجازات السريعة (الجديد والممتع!) -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">3+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">SEC Quality Standards</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Safety (HSE) Incidents</div>
+            </div>
+        </div>
+
         <!-- About Me Section -->
         <section class="accent-section">
             <h2>About Me</h2>
@@ -347,6 +441,29 @@
             <p>
                 Throughout my career, I have successfully collaborated with multidisciplinary teams, consultants, and prominent clients like the Saudi Electricity Company. I am passionate about transforming engineering designs into tangible, high-quality physical assets while strictly adhering to project timelines and budget constraints.
             </p>
+        </section>
+
+        <!-- قسم منهجية وإجراءات العمل بالموقع (الجديد والاحترافي!) -->
+        <section>
+            <h2>My Site Work Philosophy</h2>
+            <p style="margin-bottom: 25px;">How I ensure excellence and precision in every project phase:</p>
+            <div class="workflow-container">
+                <div class="workflow-card">
+                    <div class="workflow-step">1</div>
+                    <h3>Survey & Plan Review</h3>
+                    <p style="font-size: 0.95rem; text-align: left;">Studying approved shop drawings, setting out benchmarks, and verifying boundaries before breaking ground.</p>
+                </div>
+                <div class="workflow-card">
+                    <div class="workflow-step">2</div>
+                    <h3>Rigorous Site Supervision</h3>
+                    <p style="font-size: 0.95rem; text-align: left;">Overseeing excavation, reinforcement, and concrete pouring with active checks on safety regulations.</p>
+                </div>
+                <div class="workflow-card">
+                    <div class="workflow-step">3</div>
+                    <h3>QA/QC & Reporting</h3>
+                    <p style="font-size: 0.95rem; text-align: left;">Conducting material tests, raising inspection requests (IRs), and drafting flawless progress reports for clients.</p>
+                </div>
+            </div>
         </section>
 
         <!-- Experience Section -->
