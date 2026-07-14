@@ -37,13 +37,13 @@
             background-size: cover;
             background-position: center;
             color: #ffffff;
-            padding: 90px 20px;
+            padding: 100px 20px;
             text-align: center;
             border-bottom: 5px solid var(--accent-color);
         }
 
         header h1 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: 700;
             letter-spacing: 1px;
             margin-bottom: 10px;
@@ -51,7 +51,7 @@
         }
 
         header p {
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             color: #cbd5e1;
             max-width: 700px;
             margin: 0 auto 20px auto;
@@ -118,7 +118,7 @@
             text-align: justify;
         }
 
-        /* Stats Cards Styling (القسم الجديد 1) */
+        /* Stats Cards Styling */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -155,7 +155,53 @@
             text-transform: uppercase;
         }
 
-        /* Workflow Steps (القسم الجديد 2) */
+        /* Interactive Work Gallery Section (القسم الجديد الممتع والمحفز على التصفح!) */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .gallery-content {
+            padding: 15px;
+        }
+
+        .gallery-content h4 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .gallery-content p {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 0;
+            text-align: left;
+        }
+
+        /* Workflow Steps */
         .workflow-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -403,7 +449,6 @@
             <span class="badge">💼 Saudi Electricity Co. (Projects)</span>
         </div>
         
-        <!-- أزرار التحميل والتواصل المحدثة تماماً -->
         <div style="margin-top: 30px;">
             <a href="MohamedAbdalbagiCV.pdf" download="MohamedAbdalbagiCV.pdf" class="btn-submit" style="text-decoration: none; display: inline-block; background-color: var(--accent-color); margin-right: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.2);">
                 📥 Download CV (PDF)
@@ -416,7 +461,6 @@
 
     <div class="container">
 
-        <!-- قسم الأرقام والإنجازات السريعة (الجديد والممتع!) -->
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-number">3+</div>
@@ -432,7 +476,6 @@
             </div>
         </div>
 
-        <!-- About Me Section -->
         <section class="accent-section">
             <h2>About Me</h2>
             <p>
@@ -443,7 +486,38 @@
             </p>
         </section>
 
-        <!-- قسم منهجية وإجراءات العمل بالموقع (الجديد والاحترافي!) -->
+        <section class="accent-section">
+            <h2>Engineering Work Gallery</h2>
+            <p style="margin-bottom: 20px;">
+                A collection of high-quality, concept-representative visual elements illustrating key site activities, quality control, and civil engineering standards.
+            </p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=500&q=80" alt="Site Concrete Work" class="gallery-image">
+                    <div class="gallery-content">
+                        <h4>Concrete Pouring & QA/QC</h4>
+                        <p style="font-size: 0.9rem; text-align: left;">Monitoring slump tests, concrete temperature, and formwork stability during deep structural pours.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=500&q=80" alt="Civil Engineering Plans" class="gallery-image">
+                    <div class="gallery-content">
+                        <h4>Shop Drawing Alignment</h4>
+                        <p style="font-size: 0.9rem; text-align: left;">Verifying structural limits, levels, and reinforcing steel clearances against AutoCAD specifications.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7eed?auto=format&fit=crop&w=500&q=80" alt="Utility Infrastructure" class="gallery-image">
+                    <div class="gallery-content">
+                        <h4>Infrastructure & Trenching</h4>
+                        <p style="font-size: 0.9rem; text-align: left;">Supervising cable duct laying, sand-bedding, and protection tiling for distribution networks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section>
             <h2>My Site Work Philosophy</h2>
             <p style="margin-bottom: 25px;">How I ensure excellence and precision in every project phase:</p>
@@ -466,7 +540,6 @@
             </div>
         </section>
 
-        <!-- Experience Section -->
         <section>
             <h2>Professional Experience</h2>
             
@@ -484,7 +557,6 @@
             </div>
         </section>
 
-        <!-- Skills Section -->
         <section>
             <h2>Technical & Professional Skills</h2>
             <div class="skills-grid">
@@ -507,7 +579,6 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
         <section class="accent-section">
             <h2>Key Projects</h2>
             <div class="project-card">
@@ -519,11 +590,9 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact">
             <h2>Contact Me</h2>
             <div class="contact-container">
-                <!-- FormSubmit Contact Form -->
                 <div class="contact-form-col">
                     <form action="https://formsubmit.co/mboga722@gmail.com" method="POST">
                         <div class="form-group">
@@ -542,20 +611,15 @@
                     </form>
                 </div>
                 
-                <!-- Direct Links Info -->
                 <div class="contact-info-col">
                     <p style="font-weight: 600; margin-bottom: 15px; color: var(--primary-color);">Get in Touch directly:</p>
                     
-                    <!-- رابط الواتساب المباشر برقمك -->
                     <a href="https://wa.me/966579860194" target="_blank" class="info-link" style="color: #25D366;">🟢 Chat on WhatsApp</a>
                     
-                    <!-- رابط لينكد إن المباشر برابط حسابك الجديد -->
                     <a href="https://www.linkedin.com/in/mohamad-musa-b1660526a?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="info-link" style="color: #0077B5;">🔗 Connect on LinkedIn</a>
                     
-                    <!-- رابط الاتصال الهاتفي برقمك مباشرة -->
                     <a href="tel:+966579860194" class="info-link">📞 Call Mobile</a>
                     
-                    <!-- رابط الإيميل المباشر -->
                     <a href="mailto:mboga722@gmail.com" class="info-link">✉️ Send Direct Email</a>
                     
                     <p style="font-size: 0.95rem; color: #64748b; margin-top: 20px;">
