@@ -1,1 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Abdulbagi Omer | Civil Engineer Portfolio</title>
+    <style>
+        /* Modern CSS Reset & Fonts */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        :root {
+            --primary-color: #1e293b; /* Sleek Deep Slate Navy */
+            --secondary-color: #0f172a; /* Darker Slate for headers */
+            --accent-color: #f97316; /* Professional Safety Orange / Construction Accent */
+            --text-color: #334155; /* Mild dark text */
+            --bg-light: #f8fafc; /* Crisp clean background */
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header / Hero Section */
+        header {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-color);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            max-width: 700px;
+            margin: 0 auto 20px auto;
+        }
+
+        .contact-badges {
+            margin-top: 15px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 6px 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin: 5px;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        /* Container & Main Layout */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        section.accent-section {
+            border-left-color: var(--accent-color);
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        /* Experience Timeline Items */
+        .experience-item {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .experience-item h3 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            display: block;
+            font-weight: 600;
+            color: #475569;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .date {
+            display: inline-block;
+            background-color: #f1f5f9;
+            color: var(--primary-color);
+            padding: 2px 10px;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        ul li::before {
+            content: "■";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-size: 0.8rem;
+            top: 2px;
+        }
+
+        /* Skills Layout */
+        .skills-grid {
+            display: block;
+            width: 100%;
+        }
+
+        .skills-column {
+            width: 48%;
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 3%;
+        }
+
+        .skills-column:last-child {
+            margin-right: 0;
+        }
+
+        .skills-column h3 {
+            font-size: 1.15rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        /* Project Card */
+        .project-card {
+            background-color: #f8fafc;
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        .project-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .project-role {
+            font-size: 0.95rem;
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section Styles */
+        .contact-container {
+            display: block;
+            width: 100%;
+        }
+        
+        .contact-form-col {
+            width: 58%;
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 4%;
+        }
+        
+        .contact-info-col {
+            width: 38%;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1rem;
+            color: var(--text-color);
+            background-color: #f8fafc;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background-color: #ffffff;
+        }
+
+        .btn-submit {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #ea580c;
+        }
+
+        .info-link {
+            display: block;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .info-link:hover {
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .skills-column, .contact-form-col, .contact-info-col {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mohamed Abdulbagi Omer</h1>
+        <p>Civil Engineer | Site Supervision | Infrastructure & Utility Projects | QA/QC</p>
+        <div class="contact-badges">
+            <span class="badge">📍 Najran, Saudi Arabia</span>
+            <span class="badge">💼 Saudi Electricity Co. (Projects)</span>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- About Me Section -->
+        <section class="accent-section">
+            <h2>About Me</h2>
+            <p>
+                I am a dedicated and result-oriented Civil Engineer with hands-on experience in managing and supervising diverse construction, infrastructure, and utility projects. My expertise spans site operations, infrastructure development, concrete works, and QA/QC implementation, ensuring all phases of construction meet the highest standards of safety, quality, and engineering specifications.
+            </p>
+            <p>
+                Throughout my career, I have successfully collaborated with multidisciplinary teams, consultants, and prominent clients like the Saudi Electricity Company. I am passionate about transforming engineering designs into tangible, high-quality physical assets while strictly adhering to project timelines and budget constraints.
+            </p>
+        </section>
+
+        <!-- Experience Section -->
+        <section>
+            <h2>Professional Experience</h2>
+            
+            <div class="experience-item">
+                <h3>Site Civil Engineer / QA/QC Engineer</h3>
+                <span class="company">Infrastructure & Utility Projects (Contractor with Saudi Electricity Company)</span>
+                <span class="date">Present</span>
+                <ul>
+                    <li>Supervise and monitor daily civil engineering and construction activities at site, ensuring full compliance with approved drawings, specifications, and safety codes.</li>
+                    <li>Oversee critical site operations, including excavation, backfilling, steel reinforcement, concrete pouring, and finishing works.</li>
+                    <li>Manage and execute infrastructure and utility network installations, coordinating closely with sub-contractors and stakeholders.</li>
+                    <li>Implement rigorous QA/QC procedures, conduct material inspections, and prepare daily, weekly, and monthly progress and quality reports.</li>
+                    <li>Liaise effectively with consultants and client representatives (SEC) to resolve site issues promptly, minimizing project delays.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section>
+            <h2>Technical & Professional Skills</h2>
+            <div class="skills-grid">
+                <div class="skills-column">
+                    <h3>Core Engineering</h3>
+                    <ul>
+                        <li>Site Supervision & Inspection</li>
+                        <li>Infrastructure & Utility Networks</li>
+                        <li>QA/QC Inspection & Reporting</li>
+                        <li>Concrete & Structural Works</li>
+                        <li>Quantity Surveying & Cost Estimation</li>
+                    </ul>
+                </div><div class="skills-column">
+                    <h3>Tools & Software</h3>
+                    <ul>
+                        <li>AutoCAD (Drafting & Quantity Takeoff)</li>
+                        <li>Microsoft Office Suite (Excel, Word)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="accent-section">
+            <h2>Key Projects</h2>
+            <div class="project-card">
+                <h3>Infrastructure & Utility Distribution Network</h3>
+                <p class="project-role"><strong>Role:</strong> Civil / Site Engineer</p>
+                <p>
+                    Supervised civil works for major infrastructure and utility distribution networks under the standards of the Saudi Electricity Company. Managed excavation, duct laying, concrete encasement, and reinstatement works, ensuring high-quality execution and zero-accident safety records.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section>
+            <h2>Contact Me</h2>
+            <div class="contact-container">
+                <!-- Formspree Contact Form -->
+                <div class="contact-form-col">
+                    <form action="https://formspree.io/f/mboga722@gmail.com" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="How can I help you?"></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+                
+                <!-- Direct Links Info -->
+                <div class="contact-info-col">
+                    <p style="font-weight: 600; margin-bottom: 15px; color: var(--primary-color);">Get in Touch directly:</p>
+                    
+                    <!-- رابط الواتساب المباشر برقمك -->
+                    <a href="https://wa.me/966579860194" target="_blank" class="info-link" style="color: #25D366;">🟢 Chat on WhatsApp</a>
+                    
+                    <!-- رابط لينكد إن المباشر برابط حسابك الجديد -->
+                    <a href="https://www.linkedin.com/in/mohamad-musa-b1660526a?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="info-link" style="color: #0077B5;">🔗 Connect on LinkedIn</a>
+                    
+                    <!-- رابط الاتصال الهاتفي برقمك مباشرة -->
+                    <a href="tel:+966579860194" class="info-link">📞 Call Mobile</a>
+                    
+                    <!-- رابط الإيميل المباشر -->
+                    <a href="mailto:mboga722@gmail.com" class="info-link">✉️ Send Direct Email</a>
+                    
+                    <p style="font-size: 0.95rem; color: #64748b; margin-top: 20px;">
+                        📍 Location:<br>Najran, Saudi Arabia
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Mohamed Abdulbagi Omer. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
