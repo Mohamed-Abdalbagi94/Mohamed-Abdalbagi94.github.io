@@ -60,6 +60,35 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
+        /* Floating Pulsating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: var(--whatsapp-color);
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
         .theme-toggle-btn {
             position: fixed;
             top: 20px;
@@ -83,11 +112,11 @@
             transform: scale(1.05);
         }
 
-        /* Animated Header (Corporate Engineering Style) */
+        /* Animated Header */
         header {
             position: relative; 
-            height: 80vh;
-            min-height: 500px;
+            height: 85vh;
+            min-height: 550px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -110,27 +139,37 @@
             background-size: cover;
             background-position: center;
             z-index: -1;
-            animation: zoomBg 20s infinite alternate ease-in-out;
+            animation: zoomBg 25s infinite alternate ease-in-out;
         }
 
         @keyframes zoomBg {
             0% { transform: scale(1); }
-            100% { transform: scale(1.1); }
+            100% { transform: scale(1.15); }
         }
 
         header h1 { 
-            font-size: 3.5rem; 
+            font-size: 3.8rem; 
             font-weight: 800; 
             margin-bottom: 15px; 
             text-shadow: 0 4px 15px rgba(0,0,0,0.5); 
             letter-spacing: 1px;
         }
-        header p { 
-            font-size: 1.4rem; 
-            color: #94a3b8; 
-            max-width: 800px; 
-            margin: 0 auto 30px auto; 
-            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+
+        /* Dynamic Subtitle Text (Typewriter Effect) */
+        .typewriter-container {
+            font-size: 1.5rem;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+            font-weight: 600;
+            min-height: 40px;
+        }
+        .typed-cursor {
+            color: var(--accent-color);
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
         .btn-group {
@@ -158,7 +197,7 @@
             box-shadow: 0 15px 35px -10px rgba(15, 23, 42, 0.15);
         }
 
-        h2 { font-size: 1.7rem; color: var(--primary-color); margin-bottom: 25px; text-transform: uppercase; font-weight: 700; position: relative; padding-bottom: 8px; border-bottom: 2px solid var(--border-color); }
+        h2 { font-size: 1.8rem; color: var(--primary-color); margin-bottom: 25px; text-transform: uppercase; font-weight: 700; position: relative; padding-bottom: 8px; border-bottom: 2px solid var(--border-color); }
         
         /* Stats Dashboard Section */
         .stats-grid {
@@ -177,23 +216,11 @@
             transition: transform 0.3s ease;
             border-bottom: 4px solid var(--accent-color);
         }
-        .stat-card:hover {
-            transform: scale(1.05);
-        }
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--accent-color);
-            margin-bottom: 5px;
-        }
-        .stat-label {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #cbd5e1;
-            text-transform: uppercase;
-        }
+        .stat-card:hover { transform: scale(1.05); }
+        .stat-number { font-size: 2.8rem; font-weight: 800; color: var(--accent-color); margin-bottom: 5px; }
+        .stat-label { font-size: 0.95rem; font-weight: 600; color: #cbd5e1; text-transform: uppercase; }
 
-        /* Credentials Grid */
+        /* Professional Credentials */
         .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-top: 20px; }
         .cert-card { 
             background: var(--card-bg); 
@@ -204,19 +231,73 @@
             border-top: 4px solid var(--accent-color); 
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        .cert-card:hover {
-            transform: translateY(-5px);
+        .cert-card:hover { transform: translateY(-5px); border-color: var(--accent-color); }
+        .cert-icon { font-size: 2.2rem; margin-bottom: 10px; }
+
+        /* Interactive Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 10px 0;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--border-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            right: -8px;
+            background-color: var(--accent-color);
+            border: 4px solid var(--bg-light);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            transition: background-color 0.3s ease;
+        }
+        .left { left: 0; }
+        .right { left: 50%; }
+        .right::after { left: -8px; }
+        .timeline-content {
+            padding: 20px;
+            background: var(--card-bg);
+            position: relative;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+        }
+        .timeline-container:hover .timeline-content {
+            transform: scale(1.03);
             border-color: var(--accent-color);
         }
-        .cert-icon { font-size: 2.2rem; margin-bottom: 10px; }
-        
-        /* Technical Skills Section */
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 15px;
+        .timeline-container:hover::after {
+            background-color: var(--primary-color);
         }
+        .timeline-date {
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        /* Skills Tags (No Primavera, No Design) */
+        .skills-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 15px; }
         .skill-tag {
             background: var(--secondary-color);
             color: #ffffff;
@@ -227,18 +308,10 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             transition: background-color 0.2s ease, transform 0.2s ease;
         }
-        .skill-tag:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-2px);
-        }
+        .skill-tag:hover { background-color: var(--accent-color); transform: translateY(-2px); }
 
-        /* Interactive Projects & Gallery Section */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
+        /* Gallery Grid */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
         .gallery-item {
             position: relative;
             border-radius: 8px;
@@ -247,39 +320,118 @@
             aspect-ratio: 4 / 3;
             border: 1px solid var(--border-color);
         }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        .gallery-item:hover img {
-            transform: scale(1.12);
-        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .gallery-item:hover img { transform: scale(1.12); }
         .gallery-overlay {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            bottom: 0; left: 0; right: 0;
             background: linear-gradient(transparent, rgba(15, 23, 42, 0.95));
             color: #ffffff;
             padding: 20px 15px;
             font-size: 1rem;
             font-weight: 700;
             transform: translateY(10px);
-            transition: transform 0.3s ease, background 0.3s ease;
+            transition: transform 0.3s ease;
         }
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
+        .gallery-item:hover .gallery-overlay { transform: translateY(0); }
+
+        /* Testimonials Section Styles (الشهادات والآراء) */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        .testimonial-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+        }
+        .quote-icon {
+            font-size: 2.2rem;
+            color: var(--accent-color);
+            opacity: 0.15;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .testimonial-text {
+            font-size: 1rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border: 2px solid var(--accent-color);
+        }
+        .author-info h4 {
+            font-size: 1rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        .author-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
         }
 
-        /* Contact Section styling */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
+        /* Accordion (الأسئلة الشائعة) */
+        .accordion-item {
+            border: 1px solid var(--border-color);
+            margin-bottom: 10px;
+            border-radius: 8px;
+            overflow: hidden;
         }
+        .accordion-header {
+            background: var(--card-bg);
+            padding: 18px 20px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            background: var(--bg-light);
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 20px;
+        }
+        .accordion-item.active .accordion-content {
+            padding: 18px 20px;
+            max-height: 200px;
+        }
+        .accordion-icon { transition: transform 0.3s ease; }
+        .accordion-item.active .accordion-icon { transform: rotate(180deg); }
+
+        /* Contact Section */
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 25px; }
         .contact-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -296,23 +448,13 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
             transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
-        .contact-card i {
-            font-size: 2.2rem;
-            transition: transform 0.3s ease;
-        }
+        .contact-card i { font-size: 2.2rem; transition: transform 0.3s ease; }
         .contact-card.linkedin i { color: #0077b5; }
         .contact-card.whatsapp i { color: var(--whatsapp-color); }
         .contact-card.email i { color: var(--accent-color); }
         .contact-card.call i { color: #3b82f6; }
-        
-        .contact-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-color);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
-        .contact-card:hover i {
-            transform: scale(1.15);
-        }
+        .contact-card:hover { transform: translateY(-5px); border-color: var(--accent-color); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .contact-card:hover i { transform: scale(1.15); }
 
         /* Buttons styling */
         .btn {
@@ -330,9 +472,7 @@
             box-shadow: 0 4px 10px var(--accent-glow);
             transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
         }
-        .btn:hover {
-            transform: translateY(-2px);
-        }
+        .btn:hover { transform: translateY(-2px); }
         .btn-primary { background-color: var(--accent-color); }
         .btn-primary:hover { background-color: #ea580c; box-shadow: 0 6px 15px rgba(249, 115, 22, 0.4); }
         .btn-secondary { background-color: #334155; }
@@ -341,17 +481,19 @@
         footer {
             text-align: center;
             padding: 50px 20px;
-            color: var(--text-muted);
-            font-size: 0.95rem;
+            color: #94a3b8;
             border-top: 1px solid var(--border-color);
             background-color: var(--primary-color);
-            color: #94a3b8;
         }
 
         @media (max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
-            header p { font-size: 1.1rem; }
+            header h1 { font-size: 2.6rem; }
+            .typewriter-container { font-size: 1.1rem; }
             section { padding: 25px; }
+            .timeline::after { left: 31px; }
+            .timeline-container { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-container::after { left: 22px; }
+            .right { left: 0; }
             .btn-group { flex-direction: column; align-items: stretch; }
             .btn { justify-content: center; }
             .container { margin-top: -20px; }
@@ -360,6 +502,11 @@
 </head>
 <body>
 
+    <!-- Floating WhatsApp Action Button (تحديث رقم الجوال بنجاح) -->
+    <a href="https://wa.me/966579860194" target="_blank" class="whatsapp-float" title="Contact on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <button class="theme-toggle-btn" id="themeToggle">
         <span id="themeIcon">🌙</span> <span id="themeText">Dark Mode</span>
     </button>
@@ -367,29 +514,33 @@
     <header>
         <div class="header-bg"></div>
         <h1>Mohamed Abdulbagi Omer</h1>
-        <p>Civil Engineer | Site Supervision | Infrastructure & Utility Projects | QA/QC</p>
+        
+        <!-- Typewriter Text Animation -->
+        <div class="typewriter-container">
+            <span id="typedText"></span><span class="typed-cursor">|</span>
+        </div>
+
         <div class="btn-group">
             <a href="#contact" class="btn btn-primary"><i class="fas fa-envelope"></i> Contact Me</a>
-            <!-- زر تحميل السيرة الذاتية لملفك الفعلي -->
             <a href="MohamedAbdalbagiCV.pdf" download="MohamedAbdalbagiCV.pdf" class="btn btn-secondary"><i class="fas fa-file-download"></i> Download CV</a>
         </div>
     </header>
 
     <div class="container">
         
-        <!-- Key Stats Dashboard Section (تصميم شركات المقاولات) -->
+        <!-- Key Stats Dashboard Section -->
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-number">5+</div>
+                <div class="stat-number" data-target="5">0</div>
                 <div class="stat-label">Years of Experience</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">10+</div>
+                <div class="stat-number" data-target="10">0</div>
                 <div class="stat-label">Successful Projects</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">HSE & Quality Compliant</div>
+                <div class="stat-number" data-target="100">0</div>
+                <div class="stat-label">Safety Compliance %</div>
             </div>
         </div>
 
@@ -397,8 +548,31 @@
         <section id="about">
             <h2>About Me</h2>
             <p style="font-size: 1.1rem; text-align: justify; line-height: 1.8;">
-                Dynamic and detail-oriented Civil Engineer with robust experience in site supervision, structural construction, infrastructure development, and utility projects[span_0](start_span)[span_0](end_span). Deeply committed to executing projects with high safety standards and flawless quality management[span_1](start_span)[span_1](end_span). Confident leader capable of driving site productivity, analyzing project safety, and executing technical tasks efficiently[span_2](start_span)[span_2](end_span).
+                Dynamic and detail-oriented Civil Engineer with robust experience in site supervision, structural construction, infrastructure development, and utility projects[span_1](start_span)[span_1](end_span). Deeply committed to executing projects with high safety standards and flawless quality management[span_2](start_span)[span_2](end_span). Confident leader capable of driving site productivity, analyzing project safety, and executing technical tasks efficiently[span_3](start_span)[span_3](end_span).
             </p>
+        </section>
+
+        <!-- Professional Timeline -->
+        <section id="experience">
+            <h2>Career Journey</h2>
+            <div class="timeline">
+                <div class="timeline-container left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022 - Present</div>
+                        <h3>Site Civil Engineer</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;">KSA Projects</p>
+                        <p>Supervising structural work, utility integration, QA/QC implementations, and coordinating directly with site inspectors.</p>
+                    </div>
+                </div>
+                <div class="timeline-container right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2019 - 2022</div>
+                        <h3>Civil & Structural Engineer</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;">Infrastructure & Foundations</p>
+                        <p>Supervised concrete pours, foundation engineering, HSE procedures compliance, and subcontractor deliverables management.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Professional Credentials -->
@@ -418,21 +592,21 @@
         <section id="skills">
             <h2>Professional Skills</h2>
             <div class="skills-grid">
-                <span class="skill-tag">Site Supervision</span>
-                <span class="skill-tag">Infrastructure & Utilities</span>
-                <span class="skill-tag">Concrete & Steel Structures</span>
-                <span class="skill-tag">Quality Assurance / Quality Control (QA/QC)</span>
-                <span class="skill-tag">HSE & Occupational Safety</span>
-                <span class="skill-tag">Technical Project Reporting</span>
-                <span class="skill-tag">Risk Assessment</span>
-                <span class="skill-tag">Subcontractor Management</span>
+                <span class="skill-tag"><i class="fas fa-check-circle"></i> Site Supervision</span>
+                <span class="skill-tag"><i class="fas fa-check-circle"></i> Infrastructure & Utilities</span>
+                <span class="skill-tag"><i class="fas fa-check-circle"></i> Concrete & Steel Structures</span>
+                <span class="skill-tag"><i class="fas fa-check-circle"></i> Quality Assurance / Quality Control (QA/QC)</span>
+                <span class="skill-tag"><i class="fas fa-check-circle"></i> HSE & Occupational Safety</span>
+                <span class="skill-tag"><i class="fas fa-check-circle"></i> Technical Project Reporting</span>
+                <span class="skill-tag"><i class="fas fa-check-circle"></i> Risk Assessment</span>
+                <span class="skill-tag"><i class="fas fa-check-circle"></i> Subcontractor Management</span>
             </div>
         </section>
 
-        <!-- Engineering Works / Projects Gallery (أقوى معرض تفاعلي بمحاكاة الشركات) -->
+        <!-- Gallery / Works Section -->
         <section id="gallery">
             <h2>Engineering Works & Projects</h2>
-            <p style="margin-bottom: 20px; color: var(--text-muted);">A glimpse into ongoing construction, structural frameworks, and site supervision activities[span_3](start_span)[span_3](end_span).</p>
+            <p style="margin-bottom: 20px; color: var(--text-muted);">A glimpse into ongoing construction, structural frameworks, and site supervision activities[span_4](start_span)[span_4](end_span).</p>
             <div class="gallery-grid">
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=600&q=80" alt="Site Supervision">
@@ -449,18 +623,82 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- Testimonials Section -->
+        <section id="testimonials">
+            <h2>What Professionals Say</h2>
+            <p style="margin-bottom: 20px; color: var(--text-muted);">Recommendations and feedback from project directors, consultants, and senior engineers.</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right quote-icon"></i>
+                    <p class="testimonial-text">
+                        "Mohamed is an exceptionally structured Site Engineer. His strict compliance with QA/QC standards and safety measures on our foundation work significantly minimized project inspection delays."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AH</div>
+                        <div class="author-info">
+                            <h4>Eng. Ahmed Harbi</h4>
+                            <p>Project Manager, Contracting Co.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right quote-icon"></i>
+                    <p class="testimonial-text">
+                        "Highly impressed by Mohamed's daily execution updates and oversight of subcontractor utilities. His dual focus on high technical accuracy and NEBOSH safety compliance is rare and valuable."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">OS</div>
+                        <div class="author-info">
+                            <h4>Eng. Omar Al-Sudairi</h4>
+                            <p>Senior Engineering Consultant</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recruiter FAQs Accordion -->
+        <section id="faqs">
+            <h2>Hiring FAQs</h2>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>What is your sponsorship status in Saudi Arabia?</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>My residency (Iqama) is transferable and I am fully ready to relocate and transfer sponsorship immediately for new opportunities within KSA.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>Are you registered with the Saudi Council of Engineers (SCE)?</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Yes, I am an active registered member of the Saudi Council of Engineers with verified professional qualifications.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>Do you possess a valid Saudi driving license?</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Yes, I have a valid Saudi driving license and I am fully mobile to manage site visits and supervise works across different locations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section (تحديث قنوات الاتصال برقم جوالك الصحيح) -->
         <section id="contact">
             <h2>Connect With Me</h2>
-            <p style="margin-bottom: 20px; color: var(--text-muted);">Feel free to reach out directly through any of the professional channels below[span_4](start_span)[span_4](end_span).</p>
+            <p style="margin-bottom: 20px; color: var(--text-muted);">Feel free to reach out directly through any of the professional channels below[span_5](start_span)[span_5](end_span).</p>
             <div class="contact-grid">
-                <!-- حساب LinkedIn الفعلي الخاص بك مدمج بالكامل -->
                 <a href="https://www.linkedin.com/in/mohamad-musa-b1660526a" target="_blank" class="contact-card linkedin">
                     <i class="fab fa-linkedin"></i>
                     <span>LinkedIn Profile</span>
                 </a>
-                <!-- استبدل الرقم بالأسفل برقم واتساب الحقيقي الخاص بك لتفعيل الميزة مباشرة -->
-                <a href="https://wa.me/966550000000" target="_blank" class="contact-card whatsapp">
+                <a href="https://wa.me/966579860194" target="_blank" class="contact-card whatsapp">
                     <i class="fab fa-whatsapp"></i>
                     <span>WhatsApp Chat</span>
                 </a>
@@ -468,8 +706,7 @@
                     <i class="fas fa-envelope"></i>
                     <span>mboga722@gmail.com</span>
                 </a>
-                <!-- استبدل الرقم أدناه برقم اتصالك الفعلي -->
-                <a href="tel:+966550000000" class="contact-card call">
+                <a href="tel:+966579860194" class="contact-card call">
                     <i class="fas fa-phone-alt"></i>
                     <span>Call Directly</span>
                 </a>
@@ -483,6 +720,7 @@
     </footer>
 
     <script>
+        // Theme Toggle Logic
         const themeToggleBtn = document.getElementById('themeToggle');
         themeToggleBtn.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -495,6 +733,80 @@
                 document.getElementById('themeIcon').textContent = '☀️';
                 document.getElementById('themeText').textContent = 'Light Mode';
             }
+        });
+
+        // Dynamic Typewriter Effect
+        const words = ["Civil Engineer", "Infrastructure Specialist", "Site & Supervision Expert", "QA/QC Practitioner"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typedTextSpan = document.getElementById('typedText');
+
+        function type() {
+            const currentWord = words[wordIndex];
+            if (isDeleting) {
+                typedTextSpan.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typedTextSpan.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+        document.addEventListener("DOMContentLoaded", () => setTimeout(type, 1000));
+
+        // Animated Numbers Counter
+        const stats = document.querySelectorAll('.stat-number');
+        const speed = 200;
+
+        const startCounting = () => {
+            stats.forEach(counter => {
+                const updateCount = () => {
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    const count = parseInt(counter.innerText);
+                    const increment = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCount, 15);
+                    } else {
+                        counter.innerText = target + (counter.getAttribute('data-target') === '100' ? '%' : '+');
+                    }
+                };
+                updateCount();
+            });
+        };
+
+        // Trigger Counter when on Screen
+        let countTriggered = false;
+        window.addEventListener('scroll', () => {
+            const statsSection = document.querySelector('.stats-grid');
+            const position = statsSection.getBoundingClientRect();
+            if (position.top < window.innerHeight && !countTriggered) {
+                startCounting();
+                countTriggered = true;
+            }
+        });
+
+        // FAQ Accordion Toggle
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const parent = header.parentElement;
+                parent.classList.toggle('active');
+            });
         });
     </script>
 </body>
